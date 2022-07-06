@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  haraka:
+    image: mrkaran/haraka:dev
+    restart: unless-stopped
+    environment:
+      - TZ=Asia/Kolkata
+    ports:
+      - "2525:2525"
+    container_name: haraka
+    volumes:
+    # - ./config:/haraka/config:ro
+    - ./data/haraka/smtp_logs:/smtp_logs
+    - ./data/haraka/queue:/queue
