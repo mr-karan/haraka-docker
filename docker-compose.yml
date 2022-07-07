@@ -2,7 +2,7 @@ version: "3.9"
 
 services:
   haraka:
-    image: mrkaran/haraka:dev
+    image: ghcr.io/mr-karan/haraka:2.8.28
     restart: unless-stopped
     environment:
       - TZ=Asia/Kolkata
@@ -10,6 +10,7 @@ services:
       - "2525:2525"
     container_name: haraka
     volumes:
+    # Uncomment this if you have a custom config directory to mount.
     # - ./config:/haraka/config:ro
     - ./data/haraka/smtp_logs:/smtp_logs
     - ./data/haraka/queue:/queue

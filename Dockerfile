@@ -1,6 +1,9 @@
 FROM node:18.4.0-buster
+
+# Version of haraka to install. https://github.com/haraka/Haraka/releases.
 ARG HARAKA_VERSION=2.8.28
 
+# Install packages and build tools required for npm install of some plugins.
 RUN apt-get update && apt-get install -y --no-install-recommends curl unzip bash vim \
     ca-certificates tzdata make \
     git rsync gettext-base \
@@ -21,5 +24,8 @@ RUN mkdir -p /smtp_logs/accounting_files
 # Symlink the queue folder to /queue so it can be mounted externally
 RUN ln -s /queue /haraka/queue
 
+# Override the entrypoint set in node base image.
 ENTRYPOINT [ "" ]
+
+# Run the app in non-daemon mode.
 CMD [ "haraka", "-c", "/haraka" ]
