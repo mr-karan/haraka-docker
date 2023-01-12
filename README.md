@@ -12,7 +12,7 @@ For a complete example, visit [docker-compose.yml](docker-compose.yml). You're e
 
 You can view the available tags [here](https://github.com/mr-karan/haraka-docker/pkgs/container/haraka).
 
-- `ghcr.io/mr-karan/haraka:2.8.28`
+- `ghcr.io/mr-karan/haraka:3.0.0`
 - `ghcr.io/mr-karan/haraka:latest`
 
 ## Considerations
