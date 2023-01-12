@@ -17,9 +17,12 @@ WORKDIR /haraka
 # Sets up default config directories.
 RUN haraka -i /haraka
 
-# Install plugin for SMTP Logs.
+# Install plugin for SMTP Logs (soon will be deprecated from here).
 RUN npm install "https://github.com/vishnus/haraka-plugin-accounting-files.git#haraka_new" --save
 RUN mkdir -p /smtp_logs/accounting_files
+
+# Install plugin for JSON logging of outbound traffic .
+RUN npm install "https://github.com/mr-karan/haraka-plugin-outbound-logger.git#main" --save
 
 # Symlink the queue folder to /queue so it can be mounted externally
 RUN ln -s /queue /haraka/queue
