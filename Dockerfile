@@ -1,7 +1,7 @@
-FROM node:18.4.0-buster
+FROM node:19-buster
 
 # Version of haraka to install. https://github.com/haraka/Haraka/releases.
-ARG HARAKA_VERSION=2.8.28
+ARG HARAKA_VERSION=3.0.0
 
 # Install packages and build tools required for npm install of some plugins.
 RUN apt-get update && apt-get install -y --no-install-recommends curl unzip bash vim \
