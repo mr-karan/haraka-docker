@@ -2,6 +2,7 @@ FROM node:19-buster
 
 # Version of haraka to install. https://github.com/haraka/Haraka/releases.
 ARG HARAKA_VERSION=3.0.0
+ARG HARAKA_PLUGIN_OUTBOUND_LOGGER_VERSION=v0.1.1
 
 # Install packages and build tools required for npm install of some plugins.
 RUN apt-get update && apt-get install -y --no-install-recommends curl unzip bash vim \
@@ -22,7 +23,7 @@ RUN npm install "https://github.com/vishnus/haraka-plugin-accounting-files.git#h
 RUN mkdir -p /smtp_logs/accounting_files
 
 # Install plugin for JSON logging of outbound traffic .
-RUN npm install "https://github.com/mr-karan/haraka-plugin-outbound-logger.git#main" --save
+RUN npm install "https://github.com/mr-karan/haraka-plugin-outbound-logger.git#${HARAKA_PLUGIN_OUTBOUND_LOGGER_VERSION}" --save
 
 # Symlink the queue folder to /queue so it can be mounted externally
 RUN ln -s /queue /haraka/queue
